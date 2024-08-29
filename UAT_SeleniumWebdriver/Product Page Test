@@ -1,0 +1,19 @@
+import unittest
+from selenium import webdriver
+import sys
+
+url = "https://www.amazon.co.uk/"
+driver = webdriver.Firefox()
+
+class test_ProductPage:
+    def setup(self, driver):
+    ###Setting up Base
+        driver.get('https://www.amazon.co.uk/')
+        driver.implicitly_wait(5)
+        title = "Amazon.co.uk"
+        assert title == driver.title
+
+        link = driver.find_element_by_link_text("Books")
+        link.click()
+
+        try
